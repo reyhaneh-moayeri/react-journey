@@ -1,7 +1,11 @@
+import Products from "./components/Products/Products";
+
 const App = () => {
   return (
-    <div>
-      <h1>hello</h1>
+    <div className="container">
+      <Products title="react" price="99$">
+        This is a good product
+      </Products>
     </div>
   );
 };
