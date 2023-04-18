@@ -2,9 +2,6 @@
 
 import React from "react";
 import ReactDOM from "react-dom";
+import App from "./App";
 
-const heading = React.createElement("h1", {}, "hello there");
-
-const element = React.createElement("div", { id: "section" }, heading);
-
-ReactDOM.render(element, document.querySelector("#root"));
+ReactDOM.render(<App />, document.querySelector("#root"));
