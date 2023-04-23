@@ -1,5 +1,6 @@
 import Products from "./components/Products/Products";
 import React, { useState } from "react";
+import HookCounter from "./components/HookCounter";
 
 // class App extends React.Component {
 //   state = {
@@ -97,6 +98,8 @@ const App = () => {
       })}
 
       <button onClick={clickHandler}>change price</button>
+
+      <HookCounter />
     </div>
   );
 };
