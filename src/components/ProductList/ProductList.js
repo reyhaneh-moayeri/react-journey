@@ -8,12 +8,14 @@ class ProductList extends Component {
         title: "react",
         price: "99$",
         description: "this is the good product",
+        quantity: 2,
       },
       {
         id: 2,
         title: "node",
         price: "109$",
         description: "learn node js with this course",
+        quantity: 3,
       },
     ],
   };
@@ -23,16 +25,23 @@ class ProductList extends Component {
     this.setState({ products: filteredProducts });
   };
 
+  incrementHandler = (id) => {
+    const products = [...this.state.products];
+    const selectedProduct = products.find((p) => p.id === id);
+    selectedProduct.quantity++;
+    this.setState({ products });
+  };
+
   render() {
     return (
       <div>
-        {this.state.products.map((product) => {
+        {this.state.products.map((product, index) => {
           return (
             <Products
-              title={product.title}
-              price={product.price}
-              key={product.title}
+              product={product}
+              key={index}
               onDelete={() => this.removeHandler(product.id)}
+              onIncrement={() => this.incrementHandler(product.id)}
             ></Products>
           );
         })}
