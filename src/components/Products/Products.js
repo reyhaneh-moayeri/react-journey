@@ -5,6 +5,7 @@ const Product = (props) => {
     <div className={styles.products}>
       <p>product: {props.title}</p>
       <p>Price: {props.price}</p>
+      <button onClick={props.onDelete}>Delete</button>
       {props.children}
     </div>
   );
