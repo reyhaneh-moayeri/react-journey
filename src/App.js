@@ -2,6 +2,7 @@ import Products from "./components/Products/Products";
 import React, { useState } from "react";
 import HookCounter from "./components/HookCounter";
 import HookObject from "./components/HookObject";
+import HooksArray from "./components/HookArray";
 // class App extends React.Component {
 //   state = {
 //     products: [
@@ -101,6 +102,7 @@ const App = () => {
 
       <HookCounter />
       <HookObject />
+      <HooksArray />
     </div>
   );
 };

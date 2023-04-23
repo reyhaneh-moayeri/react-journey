@@ -24,8 +24,8 @@ const HookObject = () => {
           value={user.lastName}
           onChange={changeLastnameeHandler}
         />
-        <h1>my name is {user.firstName}</h1>
-        <h1>my name is {user.lastName}</h1>
+        <h1>my firstname is {user.firstName}</h1>
+        <h1>my lastname is {user.lastName}</h1>
       </form>
     </div>
   );
