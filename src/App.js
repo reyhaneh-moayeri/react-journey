@@ -5,6 +5,7 @@ import ClassCounter from "./components/ClassCounter";
 import FunctionalCounter from "./components/FunctionalCounter";
 // import ComponentCounter from "./components/ClassCounterTest";
 import FunctionalCounterIntreval from "./components/FunctionalCounterTest";
+import Wrapper from "./components/hoc/Wrapper";
 class App extends React.Component {
   state = {
     isShown: false,
@@ -94,4 +95,4 @@ class App extends React.Component {
 //   );
 // };
 
-export default App;
+export default Wrapper(App, "container");
