@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import ProductList from "./components/ProductList/ProductList";
 import "./App.css";
+import ClassCounter from "./components/ClassCounter";
+import FunctionalCounter from "./components/FunctionalCounter";
 class App extends React.Component {
   state = {};
 
@@ -24,6 +26,8 @@ class App extends React.Component {
     return (
       <div className="container">
         <ProductList />
+        <ClassCounter />
+        <FunctionalCounter />
 
         <button onClick={this.clickHandler}>change price</button>
       </div>

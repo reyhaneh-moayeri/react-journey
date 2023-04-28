@@ -32,7 +32,16 @@ class ProductList extends Component {
     this.setState({ products });
   };
 
-  render() {
+  decrementHandler = (id) => {
+    const products = [...this.state.products];
+    const selectedProduct = products.find((p) => p.id === id);
+    selectedProduct.quantity--;
+    if (selectedProduct.quantity < 1) return this.removeHandler(id);
+    return this.setState({ products });
+  };
+
+  renderComponents = () => {
+    if (this.state.products.length === 0) return <div>There is no product</div>;
     return (
       <div>
         {this.state.products.map((product, index) => {
@@ -42,9 +51,19 @@ class ProductList extends Component {
               key={index}
               onDelete={() => this.removeHandler(product.id)}
               onIncrement={() => this.incrementHandler(product.id)}
+              onDecrement={() => this.decrementHandler(product.id)}
             ></Products>
           );
         })}
+      </div>
+    );
+  };
+
+  render() {
+    return (
+      <div>
+        {!this.state.products.length && <div>Go to shopping</div>}
+        {this.renderComponents()}
       </div>
     );
   }
