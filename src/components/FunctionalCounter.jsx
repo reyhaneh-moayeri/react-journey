@@ -6,7 +6,8 @@ const FunctionalCounter = () => {
 
   useEffect(() => {
     console.log(count, name);
-  });
+    document.title = `clicked ${count} times`;
+  }, [count]);
 
   const nameChangeHandler = (e) => {
     setName(e.target.value);

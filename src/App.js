@@ -3,8 +3,12 @@ import ProductList from "./components/ProductList/ProductList";
 import "./App.css";
 import ClassCounter from "./components/ClassCounter";
 import FunctionalCounter from "./components/FunctionalCounter";
+// import ComponentCounter from "./components/ClassCounterTest";
+import FunctionalCounterIntreval from "./components/FunctionalCounterTest";
 class App extends React.Component {
-  state = {};
+  state = {
+    isShown: false,
+  };
 
   clickHandler = () => {
     // this.setState({
@@ -28,8 +32,12 @@ class App extends React.Component {
         <ProductList />
         <ClassCounter />
         <FunctionalCounter />
+        {this.state.isShown && <FunctionalCounterIntreval />}
+        <button onClick={() => this.setState({ isShown: !this.state.isShown })}>
+          {this.state.isShown ? "hide" : "show"}
+        </button>
 
-        <button onClick={this.clickHandler}>change price</button>
+        {/* <button onClick={this.clickHandler}>change price</button> */}
       </div>
     );
   }
