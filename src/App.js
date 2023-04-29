@@ -9,6 +9,7 @@ import Wrapper from "./components/hoc/Wrapper";
 import HoverCounter from "./components/hoc/HoverCounter";
 import ParentComp from "./components/memo/ParentComp";
 import ClassRef from "./components/ref/ClassRef";
+import FunctionalRef from "./components/ref/FunctionalRef";
 class App extends React.Component {
   state = {
     isShown: false,
@@ -43,6 +44,7 @@ class App extends React.Component {
 
         <HoverCounter name="counter" />
         <ClassRef />
+        <FunctionalRef />
 
         {/* <button onClick={this.clickHandler}>change price</button> */}
       </div>
