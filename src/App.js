@@ -10,6 +10,8 @@ import HoverCounter from "./components/hoc/HoverCounter";
 import ParentComp from "./components/memo/ParentComp";
 import ClassRef from "./components/ref/ClassRef";
 import FunctionalRef from "./components/ref/FunctionalRef";
+
+export const UserContext = React.createContext();
 class App extends React.Component {
   state = {
     isShown: false,
@@ -34,18 +36,20 @@ class App extends React.Component {
   render() {
     return (
       <div className="container">
-        <ProductList />
-        <ClassCounter />
-        <FunctionalCounter />
-        {this.state.isShown && <FunctionalCounterIntreval />}
-        <button onClick={() => this.setState({ isShown: !this.state.isShown })}>
-          {this.state.isShown ? "hide" : "show"}
-        </button>
-
-        <HoverCounter name="counter" />
-        <ClassRef />
-        <FunctionalRef />
-
+        <UserContext.Provider value={"reyhaneh"}>
+          <ProductList />
+          <ClassCounter />
+          <FunctionalCounter />
+          {this.state.isShown && <FunctionalCounterIntreval />}
+          <button
+            onClick={() => this.setState({ isShown: !this.state.isShown })}
+          >
+            {this.state.isShown ? "hide" : "show"}
+          </button>
+          <HoverCounter name="counter" />
+          <ClassRef />
+          <FunctionalRef />
+        </UserContext.Provider>
         {/* <button onClick={this.clickHandler}>change price</button> */}
       </div>
     );
