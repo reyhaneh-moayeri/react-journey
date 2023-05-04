@@ -10,7 +10,8 @@ import HoverCounter from "./components/hoc/HoverCounter";
 import ParentComp from "./components/memo/ParentComp";
 import ClassRef from "./components/ref/ClassRef";
 import FunctionalRef from "./components/ref/FunctionalRef";
-
+import CounterProvider from "./components/Context/CounterProvider";
+import AddOne from "./components/Context/AddOne";
 export const UserContext = React.createContext();
 class App extends React.Component {
   state = {
@@ -36,7 +37,11 @@ class App extends React.Component {
   render() {
     return (
       <div className="container">
-        <UserContext.Provider value={"reyhaneh"}>
+        <CounterProvider>
+          <h1>welcom to context</h1>
+          <AddOne />
+        </CounterProvider>
+        {/* <UserContext.Provider value={"reyhaneh"}>
           <ProductList />
           <ClassCounter />
           <FunctionalCounter />
@@ -49,7 +54,7 @@ class App extends React.Component {
           <HoverCounter name="counter" />
           <ClassRef />
           <FunctionalRef />
-        </UserContext.Provider>
+        </UserContext.Provider> */}
         {/* <button onClick={this.clickHandler}>change price</button> */}
       </div>
     );
