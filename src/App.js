@@ -40,6 +40,7 @@ class App extends React.Component {
       <div className="container">
         <CounterProvider>
           <h1>welcom to context</h1>
+          <AddOne />
           <CoutReducer />
         </CounterProvider>
         {/* <UserContext.Provider value={"reyhaneh"}>

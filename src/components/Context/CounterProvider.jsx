@@ -1,13 +1,20 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useReducer } from "react";
 
 const CounterContext = React.createContext();
 const CounterContextDispatcher = React.createContext();
 
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "add":
+      return state + action.value;
+  }
+};
+
 const CounterProvider = ({ children }) => {
-  const [count, setCount] = useState(0);
+  const [count, dispatch] = useReducer(reducer, 0);
   return (
     <CounterContext.Provider value={count}>
-      <CounterContextDispatcher.Provider value={setCount}>
+      <CounterContextDispatcher.Provider value={dispatch}>
         {children}
       </CounterContextDispatcher.Provider>
     </CounterContext.Provider>
@@ -21,13 +28,5 @@ export const useCounter = () => {
 };
 
 export const useCounterDispatcher = () => {
-  const setCount = useContext(CounterContextDispatcher);
-
-  const addOne = () => setCount((prevCount) => prevCount + 1);
-  const addFive = () => setCount((prevCount) => prevCount + 5);
-
-  return {
-    addOne,
-    addFive,
-  };
+  return useContext(CounterContextDispatcher);
 };
