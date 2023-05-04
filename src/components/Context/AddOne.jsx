@@ -1,13 +1,15 @@
-import React, { useContext } from "react";
-import { CounterContext, CounterContextDispatcher } from "./CounterProvider";
+import React from "react";
+import { useCounter, useCounterDispatcher } from "./CounterProvider";
 
 const AddOne = () => {
-  const count = useContext(CounterContext);
-  const setCount = useContext(CounterContextDispatcher);
+  const count = useCounter();
+  const actions = useCounterDispatcher();
+
   return (
     <div>
       <h3>counter is {count}</h3>
-      <button onClick={() => setCount(count + 1)}>add one</button>
+      <button onClick={actions.addOne}>add one</button>
+      <button onClick={actions.addFive}>add five</button>
     </div>
   );
 };
